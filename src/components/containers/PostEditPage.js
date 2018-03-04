@@ -24,8 +24,8 @@ function stateToProps(state, ownProps) {
 function dispatchToProps(dispatch) {
     return {
         fetchPost: (id) => dispatch(retrievePost(id)),
-        onSubmit: ({id, title, body}) => {
-            dispatch(updatePost(id, title, body))
+        onSubmit: (post) => {
+            dispatch(updatePost(post))
         }
     }
 }

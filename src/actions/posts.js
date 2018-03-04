@@ -49,12 +49,12 @@ export function retrievePost(id) {
     }
 }
 
-export function updatePost(id, title, body) {
+export function updatePost({id, title, body}) {
     return function (dispatch) {
-        API.Posts.update(id, title, body, post => {
+        API.Posts.update({id, title, body}, persistedPost => {
             dispatch({
                 type: UPDATE_POST,
-                post
+                post: persistedPost
             });
         });
     }

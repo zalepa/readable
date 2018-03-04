@@ -34,8 +34,8 @@ export const Posts = {
     create: (post, cb) => POST('/posts', post).then(cb),
     delete: (id, cb) => DELETE(`/posts/${id}`).then(cb),
     get: (id, cb) => GET(`/posts/${id}`).then(cb),
-    update: (id, title, body, cb) => {
-        PUT(`/posts/${id}`, { id: id, title: title, body: body }).then(cb)
+    update: (post, cb) => {
+        PUT(`/posts/${post.id}`, post).then(cb)
     }
 };
 
