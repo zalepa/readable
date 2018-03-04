@@ -1,4 +1,4 @@
-import { REPLACE_POSTS, ADD_POST, UPDATE_POST, REMOVE_POST } from '../actions/posts';
+import { VOTE_POST, REPLACE_POSTS, ADD_POST, UPDATE_POST, REMOVE_POST } from '../actions/posts';
 /* 
     Posts are stored in a flat array of items.
 */
@@ -9,10 +9,7 @@ import { REPLACE_POSTS, ADD_POST, UPDATE_POST, REMOVE_POST } from '../actions/po
         case ADD_POST:
             return [...state, action.post]; // naive: risk of duplicates.
         case UPDATE_POST:
-            return state.map(post => {
-                if (post.id === action.post.id) return action.post;
-                return post;
-            });
+            return state.map(post => (post.id === action.post.id ? action.post : post))
         case REMOVE_POST:
             return state.filter(post => (post.id === action.id ? null : post))
         default:

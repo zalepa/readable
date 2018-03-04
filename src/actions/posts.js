@@ -63,3 +63,14 @@ export function updatePost({id, title, body}) {
         });
     }
 }
+
+export function votePost(id, type) {
+    return function(dispatch) {
+        API.Posts.vote(id, type, persistedPost => {
+            dispatch({
+                type: UPDATE_POST,
+                post: persistedPost
+            })
+        })
+    }
+}

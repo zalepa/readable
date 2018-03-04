@@ -5,7 +5,7 @@ const PostListing = (props) => {
     return (
         <div>
             {props.posts.map(post => (
-                <PostListItem key={post.id} {...post} onDelete={props.onDelete} />
+                <PostListItem key={post.id} {...post} onDelete={props.onDelete} onVote={props.onVote} />
             ))}
         </div>
     )

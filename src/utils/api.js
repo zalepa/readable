@@ -37,9 +37,8 @@ export const Posts = {
     create: (post, cb) => POST('/posts', post).then(cb),
     delete: (id, cb) => DELETE(`/posts/${id}`).then(cb),
     get: (id, cb) => GET(`/posts/${id}`).then(cb),
-    update: (post, cb) => {
-        PUT(`/posts/${post.id}`, post).then(cb)
-    }
+    update: (post, cb) => PUT(`/posts/${post.id}`, post).then(cb),
+    vote: (id, option, cb) => POST(`/posts/${id}`, {option }).then(cb)
 };
 
 export const Categories = {

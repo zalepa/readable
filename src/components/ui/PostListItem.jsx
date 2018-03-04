@@ -1,7 +1,7 @@
 import React from 'react';
 import './PostListItem.css';
 
-const PostListItem = ({title, id, author, timestamp, category, voteScore, commentCount, onDelete}) => {
+const PostListItem = ({title, id, author, timestamp, category, voteScore, commentCount, onDelete, onVote}) => {
 
     const formattedDate = new Date(timestamp).toLocaleDateString();
 
@@ -9,9 +9,9 @@ const PostListItem = ({title, id, author, timestamp, category, voteScore, commen
         <div className="post-list-item">
             <div className="title">
                 <span className="voting">
-                    [<button>+</button>]
+                    [<button onClick={() => onVote(id, 'upVote')}>+</button>]
                     [{voteScore}]
-                    [<button>-</button>]
+                    [<button onClick={() => onVote(id, 'downVote')}>-</button>]
                 </span> <a href={`/${category}/${id}`}>{title}</a>
             </div>
             <div className="details">
