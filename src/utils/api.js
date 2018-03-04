@@ -43,6 +43,13 @@ export const Posts = {
 
 export const Categories = {
     all: (cb) => GET('/categories').then(json => cb(json.categories)),
-}
+};
+
+export const Comments = {
+    all: (postId, cb) => {
+        return GET(`/posts/${postId}/comments`).then(cb)
+    }
+};
+
 
 

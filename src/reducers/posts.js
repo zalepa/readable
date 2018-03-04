@@ -1,4 +1,4 @@
-import { VOTE_POST, REPLACE_POSTS, ADD_POST, UPDATE_POST, REMOVE_POST } from '../actions/posts';
+import { REPLACE_POSTS, ADD_POST, UPDATE_POST, REMOVE_POST } from '../actions/posts';
 /* 
     Posts are stored in a flat array of items.
 */
