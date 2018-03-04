@@ -1,6 +1,17 @@
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PostListing from '../ui/PostListing.jsx';
-import {deletePost} from "../../actions/posts";
+import {deletePost, fetchPosts} from "../../actions/posts";
+
+class Homepage extends Component {
+    componentDidMount = () => {
+        this.props.fetchPosts();
+    };
+
+    render() {
+        return <PostListing {...this.props}/>
+    }
+}
 
 function stateToProps(state) {
     return {
@@ -12,8 +23,9 @@ function dispatchToProps(dispatch) {
     return {
         onDelete: (id) => {
             dispatch(deletePost(id))
-        }
+        },
+        fetchPosts: () => dispatch(fetchPosts())
     }
 }
 
-export default connect(stateToProps, dispatchToProps)(PostListing);
+export default connect(stateToProps, dispatchToProps)(Homepage);
