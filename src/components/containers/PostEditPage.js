@@ -25,7 +25,7 @@ function dispatchToProps(dispatch) {
     return {
         fetchPost: (id) => dispatch(retrievePost(id)),
         onSubmit: (post) => {
-            dispatch(updatePost(post))
+            dispatch(updatePost(post));
         }
     }
 }
