@@ -39,5 +39,8 @@ export const Posts = {
     }
 };
 
+export const Categories = {
+    all: (cb) => GET('/categories').then(json => cb(json.categories)),
+}
 
 

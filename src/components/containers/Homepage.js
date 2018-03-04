@@ -2,20 +2,33 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PostListing from '../ui/PostListing.jsx';
 import {deletePost, fetchPosts} from "../../actions/posts";
+import {fetchCategories} from '../../actions/categories';
 
 class Homepage extends Component {
     componentDidMount = () => {
         this.props.fetchPosts();
+        this.props.fetchCategories();
     };
 
     render() {
-        return <PostListing {...this.props}/>
+        return (
+            <div>
+                <div className="category-chooser">
+                    Categories:
+                    {this.props.categories.map(category => (
+                        <a href={`/${category.path}`}>{category.name}</a>
+                    ))}
+                </div>
+                <PostListing {...this.props}/>
+            </div>
+        )
     }
 }
 
 function stateToProps(state) {
     return {
-        posts: state.posts
+        posts: state.posts,
+        categories: state.categories
     }
 }
 
@@ -24,7 +37,8 @@ function dispatchToProps(dispatch) {
         onDelete: (id) => {
             dispatch(deletePost(id))
         },
-        fetchPosts: () => dispatch(fetchPosts())
+        fetchPosts: () => dispatch(fetchPosts()),
+        fetchCategories: () => dispatch(fetchCategories())
     }
 }
 

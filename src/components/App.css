@@ -41,3 +41,10 @@ button {
 }
 
 button:focus {outline:0;}
+
+.category-chooser {
+    margin-bottom: 1em;
+}
+
+.category-chooser a { margin-right: 1em;}
+.category-chooser a:first-child { margin-left: 1em;}
