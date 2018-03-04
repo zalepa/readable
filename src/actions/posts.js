@@ -18,10 +18,10 @@ export function fetchPosts() {
 
 export function createPost(post) {
     return function (dispatch) {
-        API.Posts.create(post => {
+        API.Posts.create(post, persistedPost => {
             dispatch({
                 type: ADD_POST,
-                post
+                post: persistedPost
             });
         });
     }
