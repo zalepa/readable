@@ -1,4 +1,5 @@
 import * as API from '../utils/api';
+import {push} from 'react-router-redux';
 
 export const REPLACE_POSTS = 'REPLACE_POSTS';
 export const ADD_POST = 'ADD_POST';
@@ -23,6 +24,7 @@ export function createPost(post) {
                 type: ADD_POST,
                 post: persistedPost
             });
+            dispatch(push(`/${persistedPost.category}/${persistedPost.id}`));
         });
     }
 }
@@ -56,6 +58,7 @@ export function updatePost({id, title, body}) {
                 type: UPDATE_POST,
                 post: persistedPost
             });
+            dispatch(push('/'))
         });
     }
 }
