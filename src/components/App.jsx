@@ -5,7 +5,7 @@ import './App.css';
 import Homepage from './containers/Homepage.js';
 import CategoryPage from './containers/CategoryPage.js';
 import NewPostPage from './containers/NewPostPage.js';
-import PostDetail from './PostDetail.jsx';
+import PostDetailPage from './containers/PostDetailPage.js';
 import EditPost from './EditPost.jsx';
 
 class App extends Component {
@@ -23,7 +23,7 @@ class App extends Component {
           <Route exact path="/" component={Homepage} />
           <Route exact path="/posts/new" component={NewPostPage} />
           <Route exact path="/:category" component={CategoryPage} />
-          <Route exact path="/:category/:id" component={PostDetail} />
+          <Route exact path="/:category/:id" component={PostDetailPage} />
           <Route exact path="/:category/:id/edit" component={EditPost} />
         </Switch>
       </div>

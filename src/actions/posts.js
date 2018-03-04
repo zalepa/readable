@@ -37,3 +37,14 @@ export function deletePost(id) {
         });
     }
 };
+
+export function retrievePost(id) {
+    return function (dispatch) {
+        API.Posts.get(id, post => {
+            dispatch({
+                type: ADD_POST,
+                post
+            });
+        });
+    }
+}

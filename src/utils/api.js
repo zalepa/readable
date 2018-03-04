@@ -24,7 +24,8 @@ const DELETE = (path) => {
 export const Posts = {
     all: (cb) => GET('/posts').then(cb),
     create: (post, cb) => POST('/posts', post).then(cb),
-    delete: (id, cb) => DELETE(`/posts/${id}`).then(cb)
+    delete: (id, cb) => DELETE(`/posts/${id}`).then(cb),
+    get: (id, cb) => GET(`/posts/${id}`).then(cb),
 };
 
 
