@@ -6,9 +6,10 @@ export const ADD_POST = 'ADD_POST';
 export const UPDATE_POST = 'REPLACE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
 
-export function fetchPosts() {
+export function fetchPosts(category) {
+    if (category === undefined) category = 'all';
     return function (dispatch) {
-        API.Posts.all(posts => {
+        API.Posts.all(category, posts => {
             dispatch({
                 type: REPLACE_POSTS,
                 posts

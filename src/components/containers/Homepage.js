@@ -6,7 +6,7 @@ import {fetchCategories} from '../../actions/categories';
 
 class Homepage extends Component {
     componentDidMount = () => {
-        this.props.fetchPosts();
+        this.props.fetchPosts('all');
         this.props.fetchCategories();
     };
 
@@ -37,7 +37,7 @@ function dispatchToProps(dispatch) {
         onDelete: (id) => {
             dispatch(deletePost(id))
         },
-        fetchPosts: () => dispatch(fetchPosts()),
+        fetchPosts: (category) => dispatch(fetchPosts(category)),
         fetchCategories: () => dispatch(fetchCategories())
     }
 }

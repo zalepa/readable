@@ -30,7 +30,10 @@ const PUT = (path, payload) => {
 };
 
 export const Posts = {
-    all: (cb) => GET('/posts').then(cb),
+    all: (category, cb) => {
+        if (category === 'all') return GET('/posts').then(cb)
+        else return GET(`/${category}/posts`).then(cb)
+    },
     create: (post, cb) => POST('/posts', post).then(cb),
     delete: (id, cb) => DELETE(`/posts/${id}`).then(cb),
     get: (id, cb) => GET(`/posts/${id}`).then(cb),
