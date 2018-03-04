@@ -3,10 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import Homepage from './containers/Homepage.js';
-import CategoryPage from './containers/CategoryPage.js';
-import NewPostPage from './containers/NewPostPage.js';
-import PostDetailPage from './containers/PostDetailPage.js';
-import EditPost from './EditPost.jsx';
+import CategoryPage from './containers/CategoryPage';
+import NewPostPage from './containers/NewPostPage';
+import PostDetailPage from './containers/PostDetailPage';
+import PostEditPage from './containers/PostEditPage';
 
 class App extends Component {
 
@@ -24,7 +24,7 @@ class App extends Component {
           <Route exact path="/posts/new" component={NewPostPage} />
           <Route exact path="/:category" component={CategoryPage} />
           <Route exact path="/:category/:id" component={PostDetailPage} />
-          <Route exact path="/:category/:id/edit" component={EditPost} />
+          <Route exact path="/:category/:id/edit" component={PostEditPage} />
         </Switch>
       </div>
     );

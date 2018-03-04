@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
 
-class NewPostForm extends Component {
-
+class EditPostForm extends Component {
     state = {
         post: {
             title: '', body: '', author: '', category: 'react'
         }
     };
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.post) {
+            this.setState({
+                post: nextProps.post
+            });
+        }
+    }
 
     handleChange = (event) => {
         event.preventDefault();
@@ -26,7 +33,7 @@ class NewPostForm extends Component {
     render() {
         return (
             <div className="new-post-form">
-                <h1>New Post</h1>
+                <h1>Edit Post</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-control">
                         <label htmlFor="title">Title: </label>
@@ -52,13 +59,12 @@ class NewPostForm extends Component {
                         </select>
                     </div>
                     <div className="form-control">
-                        <input type="submit" value="Save"/>
+                        <input type="submit" value="Update"/>
                     </div>
                 </form>
             </div>
         )
     }
-
 }
 
-export default NewPostForm;
+export default EditPostForm;

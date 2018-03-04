@@ -25,7 +25,7 @@ export function createPost(post) {
             });
         });
     }
-};
+}
 
 export function deletePost(id) {
     return function (dispatch) {
@@ -36,13 +36,24 @@ export function deletePost(id) {
             });
         });
     }
-};
+}
 
 export function retrievePost(id) {
     return function (dispatch) {
         API.Posts.get(id, post => {
             dispatch({
                 type: ADD_POST,
+                post
+            });
+        });
+    }
+}
+
+export function updatePost(id, title, body) {
+    return function (dispatch) {
+        API.Posts.update(id, title, body, post => {
+            dispatch({
+                type: UPDATE_POST,
                 post
             });
         });

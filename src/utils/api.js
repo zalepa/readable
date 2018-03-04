@@ -12,7 +12,6 @@ const POST = (path, payload) => {
         method: 'POST',
         body: JSON.stringify(payload)
     };
-    console.log(headers);
     return fetch(`${BASE_URL}${path}`, headers).then(toJson);
 };
 
@@ -21,11 +20,23 @@ const DELETE = (path) => {
     return fetch(`${BASE_URL}${path}`, headers).then(toJson);
 };
 
+const PUT = (path, payload) => {
+    const headers = {
+        ...AUTH,
+        method: 'PUT',
+        body: JSON.stringify(payload)
+    };
+    return fetch(`${BASE_URL}${path}`, headers).then(toJson);
+};
+
 export const Posts = {
     all: (cb) => GET('/posts').then(cb),
     create: (post, cb) => POST('/posts', post).then(cb),
     delete: (id, cb) => DELETE(`/posts/${id}`).then(cb),
     get: (id, cb) => GET(`/posts/${id}`).then(cb),
+    update: (id, title, body, cb) => {
+        PUT(`/posts/${id}`, { id: id, title: title, body: body }).then(cb)
+    }
 };
 
 
