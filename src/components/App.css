@@ -1,0 +1,43 @@
+body {
+    font-family: 'Monaco', 'Courier New', Courier, monospace;
+    font-size: 0.75em;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight:bold;
+}
+
+a:hover, button:hover {
+    text-decoration: underline;
+}
+
+ul.menu {
+    list-style-type: none;
+    padding: 0; margin: 0;
+    margin-bottom: 1em;
+}
+
+ul.menu li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0 1em;
+}
+
+ul.menu li:first-child {
+    padding: 0;
+}
+
+button {
+    border: none;
+    font-weight: bold;
+    font-family: 'Monaco', 'Courier New', Courier, monospace;
+    font-size: 1em;
+    padding: 0;
+    cursor: pointer;
+}
+
+button:focus {outline:0;}
