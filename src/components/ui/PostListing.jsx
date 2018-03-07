@@ -4,7 +4,7 @@ import PostListItem from './PostListItem.jsx';
 const PostListing = (props) => {
     return (
         <div>
-            <div class="sorting">
+            <div className="sorting">
                 <strong>Sort:</strong>{" "}
                 <button name="timestamp" data-dir="DESC" onClick={props.onSort}>↓Date</button>{" "}
                 <button name="timestamp" data-dir="ASC"  onClick={props.onSort}>↑Date</button>{" "}

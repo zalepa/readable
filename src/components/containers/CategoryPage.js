@@ -16,7 +16,7 @@ class CategoryPage extends Component {
                 <div className="category-chooser">
                     Categories:
                     {this.props.categories.map(category => (
-                        <a href={`/${category.path}`}>{category.name}</a>
+                        <a key={category.name} href={`/${category.path}`}>{category.name}</a>
                     ))}
                 </div>
                 <PostListing {...this.props}/>
