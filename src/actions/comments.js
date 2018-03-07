@@ -1,9 +1,11 @@
 import * as API from "../utils/api";
 import {UPDATE_POST} from "./posts";
+import {push} from "react-router-redux";
 
 export const REPLACE_COMMENTS = 'REPLACE_COMMENTS';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const UPDATE_COMMENT = 'UPDATE_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
 
 export function fetchComments(postId) {
     return function (dispatch) {
@@ -34,5 +36,28 @@ export function voteComment(id, type) {
                 comment: persistedComment
             })
         })
+    }
+}
+
+export function retrieveComment(id) {
+    return function (dispatch) {
+        API.Comments.get(id, comment => {
+            dispatch({
+                type: ADD_COMMENT,
+                comment
+            });
+        });
+    }
+}
+
+export function updateComment({id, title, body}) {
+    return function (dispatch) {
+        API.Comments.update({id, title, body}, persistedComment => {
+            dispatch({
+                type: UPDATE_COMMENT,
+                comment: persistedComment
+            });
+            dispatch(push('/'))
+        });
     }
 }

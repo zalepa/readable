@@ -50,7 +50,9 @@ export const Comments = {
         return GET(`/posts/${postId}/comments`).then(cb)
     },
     delete: (id, cb) => DELETE(`/comments/${id}`).then(cb),
-    vote: (id, option, cb) => POST(`/comments/${id}`, {option}).then(cb)
+    vote: (id, option, cb) => POST(`/comments/${id}`, {option}).then(cb),
+    get: (id, cb) => GET(`/comments/${id}`).then(cb),
+    update: (comment, cb) => PUT(`/comments/${comment.id}`, comment).then(cb),
 };
 
 
