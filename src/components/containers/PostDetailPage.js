@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PostView from '../ui/PostView';
 import {connect} from 'react-redux';
-import {retrievePost} from '../../actions/posts';
-import {fetchComments} from "../../actions/comments";
+import {deletePost, retrievePost, votePost} from '../../actions/posts';
+import {fetchComments, deleteComment, voteComment } from "../../actions/comments";
 
 class PostDetailPage extends Component {
     componentDidMount() {
@@ -27,7 +27,11 @@ function stateToProps(state, ownProps) {
 function dispatchToProps(dispatch) {
     return {
         fetchPost: (id) => dispatch(retrievePost(id)),
-        fetchComments: (postId) => dispatch(fetchComments(postId))
+        fetchComments: (postId) => dispatch(fetchComments(postId)),
+        onPostVote: (id, type) => dispatch(votePost(id, type)),
+        onPostDelete: (id) => dispatch(deletePost(id)), // BUG: doesn't redirect
+        onCommentDelete: (id) => dispatch(deleteComment(id)),
+        onCommentVote: (id, type) => dispatch(voteComment(id, type)),
     }
 }
 

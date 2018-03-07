@@ -2,17 +2,15 @@ import React from 'react';
 import PostListItem from './PostListItem.jsx';
 import Comment from './Comment'
 
-const PostView = ({post, comments}) => {
+const PostView = ({post, comments, onPostVote, onCommentVote, onPostEdit, onCommentEdit, onPostDelete, onCommentDelete}) => {
     return (
         <div className="new-post-form">
             <h3>Post</h3>
-            <PostListItem {...post} />
+            <PostListItem {...post} onVote={onPostVote} onDelete={onPostDelete} />
             <h3>Comments</h3>
-            <ul>
-                {comments.map(comment => (
-                    <Comment key={comment.id} {...comment} />
-                ))}
-            </ul>
+            {comments.map(comment => (
+                <Comment key={comment.id} {...comment} onDelete={onCommentDelete} onVote={onCommentVote} />
+            ))}
         </div>
     )
 }
