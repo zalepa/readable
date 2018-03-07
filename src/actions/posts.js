@@ -5,6 +5,7 @@ export const REPLACE_POSTS = 'REPLACE_POSTS';
 export const ADD_POST = 'ADD_POST';
 export const UPDATE_POST = 'REPLACE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
+export const SORT_POSTS = 'SORT_POSTS';
 
 export function fetchPosts(category) {
     if (category === undefined) category = 'all';
@@ -73,4 +74,8 @@ export function votePost(id, type) {
             })
         })
     }
+}
+
+export function sortPosts(key, dir) {
+    return { type: SORT_POSTS, key, dir }
 }

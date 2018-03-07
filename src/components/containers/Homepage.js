@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PostListing from '../ui/PostListing.jsx';
-import {deletePost, fetchPosts, votePost} from "../../actions/posts";
+import {sortPosts, deletePost, fetchPosts, votePost} from "../../actions/posts";
 import {fetchCategories} from '../../actions/categories';
 
 class Homepage extends Component {
@@ -16,7 +16,8 @@ class Homepage extends Component {
                 <div className="category-chooser">
                     Categories:
                     {this.props.categories.map(category => (
-                        <a key={category.name} href={`/${category.path}`}>{category.name}</a>
+                        <a key={category.name}
+                           href={`/${category.path}`}>{category.name}</a>
                     ))}
                 </div>
                 <PostListing {...this.props}/>
@@ -37,7 +38,11 @@ function dispatchToProps(dispatch) {
         onDelete: (id) => dispatch(deletePost(id)),
         fetchPosts: (category) => dispatch(fetchPosts(category)),
         fetchCategories: () => dispatch(fetchCategories()),
-        onVote: (id, type) => dispatch(votePost(id, type))
+        onVote: (id, type) => dispatch(votePost(id, type)),
+        onSort: (e) => {
+            e.preventDefault();
+            dispatch(sortPosts(e.target.name, e.target.dataset.dir));
+        }
     }
 }
 
