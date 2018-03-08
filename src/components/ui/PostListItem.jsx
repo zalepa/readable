@@ -1,7 +1,7 @@
 import React from 'react';
 import './PostListItem.css';
 
-const PostListItem = ({title, id, author, body, timestamp, category, voteScore, commentCount, onDelete, onVote}) => {
+const PostListItem = ({hideBody, title, id, author, body, timestamp, category, voteScore, commentCount, onDelete, onVote}) => {
 
     const formattedDate = new Date(timestamp).toLocaleDateString();
 
@@ -22,9 +22,9 @@ const PostListItem = ({title, id, author, body, timestamp, category, voteScore, 
                 <button onClick={() => onDelete(id)}>delete</button>
                 ]
             </div>
-            <div className="body">
+            {!hideBody && <div className="body">
                 {body}
-            </div>
+            </div>}
         </div>
     )
 

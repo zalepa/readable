@@ -20,7 +20,7 @@ class Homepage extends Component {
                            href={`/${category.path}`}>{category.name}</a>
                     ))}
                 </div>
-                <PostListing {...this.props}/>
+                <PostListing {...this.props} hideBody={true}/>
             </div>
         )
     }

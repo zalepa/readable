@@ -22,7 +22,7 @@ class CategoryPage extends Component {
                         <a key={category.name} href={`/${category.path}`}>{category.name}</a>
                     ))}
                 </div>
-                <PostListing {...this.props}/>
+                <PostListing {...this.props} hideBody={true}/>
             </div>
         )
     }
