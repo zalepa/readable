@@ -11,7 +11,7 @@ class PostDetailPage extends Component {
     }
 
     render() {
-        return <PostView {...this.props} />git
+        return <PostView {...this.props} />
     }
 }
 
