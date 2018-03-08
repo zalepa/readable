@@ -14,7 +14,10 @@ class CategoryPage extends Component {
         return (
             <div>
                 <div className="category-chooser">
-                    Categories:
+                    <span className="pull-left">
+                        <strong>#{this.props.activeCategory}</strong>
+                    </span>
+                    Categories:{" "}
                     {this.props.categories.map(category => (
                         <a key={category.name} href={`/${category.path}`}>{category.name}</a>
                     ))}

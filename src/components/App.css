@@ -1,9 +1,9 @@
 body {
     font-family: 'Monaco', 'Courier New', Courier, monospace;
     font-size: 0.75em;
+    padding: 0;
+    margin: 0;
 }
-
-
 
 a {
     text-decoration: none;
@@ -16,6 +16,7 @@ a:hover, button:hover {
 }
 
 ul.menu {
+    background-color: #f0f0f0;
     list-style-type: none;
     padding: 0; margin: 0;
     margin-bottom: 1em;
@@ -24,11 +25,19 @@ ul.menu {
 ul.menu li {
     list-style-type: none;
     display: inline-block;
-    padding: 0 1em;
+    padding: 0.25em 1em;
+}
+
+ul.menu li:hover {
+    background-color: #d0d0d0;
 }
 
 ul.menu li:first-child {
-    padding: 0;
+    text-transform: uppercase;
+}
+
+.pull-left {
+    float: left;
 }
 
 button {
@@ -38,13 +47,24 @@ button {
     font-size: 1em;
     padding: 0;
     cursor: pointer;
+    background-color: transparent;
 }
 
 button:focus {outline:0;}
 
 .category-chooser {
     margin-bottom: 1em;
+    text-align: right;
 }
 
 .category-chooser a { margin-right: 1em;}
 .category-chooser a:first-child { margin-left: 1em;}
+
+.page {
+    padding: 0 2em;
+}
+
+footer {
+    font-size: 0.75em;
+    text-align: center;
+}
