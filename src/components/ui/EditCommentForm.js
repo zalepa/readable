@@ -27,7 +27,7 @@ class EditCommentForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         if (this.props.onSubmit) {
-            this.props.onSubmit(this.state.comment);
+            this.props.onSubmit(this.state.comment, this.props.post);
         }
     };
 
