@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PostListing from '../ui/PostListing.jsx';
 import {sortPosts, deletePost, fetchPosts, votePost} from "../../actions/posts";
 import {fetchCategories} from '../../actions/categories';
+import CategoryChooser from "../ui/CategoryChooser";
 
 class Homepage extends Component {
     componentDidMount = () => {
@@ -13,13 +14,7 @@ class Homepage extends Component {
     render() {
         return (
             <div>
-                <div className="category-chooser">
-                    Categories:
-                    {this.props.categories.map(category => (
-                        <a key={category.name}
-                           href={`/${category.path}`}>{category.name}</a>
-                    ))}
-                </div>
+                <CategoryChooser categories={this.props.categories}/>
                 <PostListing {...this.props} hideBody={true}/>
             </div>
         )
