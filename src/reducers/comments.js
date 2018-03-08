@@ -6,7 +6,7 @@ import { ADD_COMMENT, REPLACE_COMMENTS, REMOVE_COMMENT, UPDATE_COMMENT } from '.
 function commentsReducer(state = [], action) {
     switch(action.type) {
         case ADD_COMMENT:
-            return [...state, action.comment]; // naive: risk of duplicates.
+            return [...state, action.comment];
         case REPLACE_COMMENTS:
             return action.comments;
         case REMOVE_COMMENT:

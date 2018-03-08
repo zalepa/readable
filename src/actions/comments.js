@@ -1,6 +1,5 @@
 import * as API from "../utils/api";
-import {ADD_POST, UPDATE_POST} from "./posts";
-import {push, go } from "react-router-redux";
+import {go} from "react-router-redux";
 
 export const REPLACE_COMMENTS = 'REPLACE_COMMENTS';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
@@ -17,6 +16,7 @@ export function fetchComments(postId) {
         });
     }
 }
+
 export function deleteComment(id) {
     return function (dispatch) {
         API.Comments.delete(id, comment => {
@@ -29,7 +29,7 @@ export function deleteComment(id) {
 }
 
 export function voteComment(id, type) {
-    return function(dispatch) {
+    return function (dispatch) {
         API.Comments.vote(id, type, persistedComment => {
             dispatch({
                 type: UPDATE_COMMENT,

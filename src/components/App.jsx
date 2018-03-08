@@ -38,7 +38,7 @@ class App extends Component {
 
 
                 <footer>
-                    <p>Made with 🧡 for Udacity [<a href="https://github.com/zalepa/readable/">source</a>]</p>
+                    <p>Made with <span role="img" aria-label="heart">🧡</span> for Udacity [<a href="https://github.com/zalepa/readable/">source</a>]</p>
                 </footer>
 
 
