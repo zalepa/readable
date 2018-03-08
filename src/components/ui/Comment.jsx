@@ -13,7 +13,7 @@ const Comment = (props) => {
                 </span>{" "}
                 On {formattedDate}, {props.author} said:
             </div>
-            <div className="body">
+            <div className="comment-body">
                 {props.body}
                 <div>
                     [<a href={`/comments/${props.id}/edit`}>edit</a>]

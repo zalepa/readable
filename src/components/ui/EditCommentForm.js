@@ -33,7 +33,7 @@ class EditCommentForm extends Component {
 
     render() {
         return (
-            <div className="new-comment-form">
+            <div className="form new-comment-form">
                 <h1>Edit Comment</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-control">

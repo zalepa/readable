@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./forms.css";
 
 class NewCommentForm extends Component {
 
@@ -25,7 +26,7 @@ class NewCommentForm extends Component {
 
     render() {
         return (
-            <div className="new-comment-form">
+            <div className="form new-comment-form">
                 <h1>New Comment</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-control">

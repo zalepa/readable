@@ -11,10 +11,7 @@ class PostDetailPage extends Component {
     }
 
     render() {
-        if (this.props.post)
-            return <PostView {...this.props} />
-        else
-            return <div></div>
+        return <PostView {...this.props} />git
     }
 }
 

@@ -23,8 +23,9 @@ class App extends Component {
                     </ul>
                 </header>
 
-                <Switch>
-                    <div className="page">
+
+                <div className="page">
+                    <Switch>
                         <Route exact path="/" component={Homepage}/>
                         <Route exact path="/posts/new" component={NewPostPage}/>
                         <Route exact path="/:category/:postId/comments/new" component={NewCommentPage}/>
@@ -32,8 +33,9 @@ class App extends Component {
                         <Route exact path="/:category" component={CategoryPage}/>
                         <Route exact path="/:category/:id" component={PostDetailPage}/>
                         <Route exact path="/:category/:id/edit" component={PostEditPage}/>
-                    </div>
-                </Switch>
+                    </Switch>
+                </div>
+
 
                 <footer>
                     <p>Made with 🧡 for Udacity [<a href="https://github.com/zalepa/readable/">source</a>]</p>
