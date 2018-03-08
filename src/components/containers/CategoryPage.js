@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PostListing from '../ui/PostListing.jsx';
-import {deletePost, fetchPosts} from "../../actions/posts";
+import {deletePost, fetchPosts, sortPosts} from "../../actions/posts";
 import {fetchCategories} from '../../actions/categories';
 
 class CategoryPage extends Component {
@@ -43,7 +43,11 @@ function dispatchToProps(dispatch) {
             dispatch(deletePost(id))
         },
         fetchPosts: (category) => dispatch(fetchPosts(category)),
-        fetchCategories: () => dispatch(fetchCategories())
+        fetchCategories: () => dispatch(fetchCategories()),
+        onSort: (e) => {
+            e.preventDefault();
+            dispatch(sortPosts(e.target.name, e.target.dataset.dir));
+        }
     }
 }
 
