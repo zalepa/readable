@@ -21,11 +21,8 @@ class Homepage extends Component {
     }
 }
 
-function stateToProps(state) {
-    return {
-        posts: state.posts,
-        categories: state.categories
-    }
+function stateToProps({posts, categories}) {
+    return {posts, categories}
 }
 
 function dispatchToProps(dispatch) {
