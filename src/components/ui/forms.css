@@ -1,0 +1,12 @@
+.form .form-control {
+    margin: 1em 0;
+}
+
+.form label {
+    display:block;
+}
+
+.form input[type=submit] {
+    padding: 0.5em 1em;
+    font-size: 1.25em;
+}

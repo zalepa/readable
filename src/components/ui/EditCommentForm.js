@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./forms.css";
 
 class EditCommentForm extends Component {
     state = {

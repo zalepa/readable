@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "./forms.css";
 
 class NewPostForm extends Component {
 
@@ -25,7 +26,7 @@ class NewPostForm extends Component {
 
     render() {
         return (
-            <div className="new-post-form">
+            <div className="form new-post-form">
                 <h1>New Post</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-control">
