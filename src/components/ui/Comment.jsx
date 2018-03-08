@@ -1,6 +1,8 @@
 import React from 'react';
+import "./Comment.css";
 
 const Comment = (props) => {
+    const formattedDate = new Date(props.timestamp).toLocaleDateString();
     return (
         <div className="comment">
             <div className="title">
@@ -9,7 +11,7 @@ const Comment = (props) => {
                     [{props.voteScore}]
                     [<button onClick={() => props.onVote(props.id, 'downVote')}>-</button>]
                 </span>{" "}
-                {props.author} said (on {props.timestamp}):
+                On {formattedDate}, {props.author} said:
             </div>
             <div className="body">
                 {props.body}

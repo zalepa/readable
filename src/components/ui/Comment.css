@@ -1,0 +1,7 @@
+.comment {
+    margin-bottom: 1em;
+}
+
+.comment:nth-child(even) {
+    background-color:#fafafa;
+}

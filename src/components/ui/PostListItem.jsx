@@ -1,7 +1,7 @@
 import React from 'react';
 import './PostListItem.css';
 
-const PostListItem = ({title, id, author, timestamp, category, voteScore, commentCount, onDelete, onVote}) => {
+const PostListItem = ({title, id, author, body, timestamp, category, voteScore, commentCount, onDelete, onVote}) => {
 
     const formattedDate = new Date(timestamp).toLocaleDateString();
 
@@ -21,6 +21,9 @@ const PostListItem = ({title, id, author, timestamp, category, voteScore, commen
                 [
                 <button onClick={() => onDelete(id)}>delete</button>
                 ]
+            </div>
+            <div className="body">
+                {body}
             </div>
         </div>
     )
