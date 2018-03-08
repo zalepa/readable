@@ -1,6 +1,6 @@
 import * as API from "../utils/api";
-import {UPDATE_POST} from "./posts";
-import {push} from "react-router-redux";
+import {ADD_POST, UPDATE_POST} from "./posts";
+import {push, go } from "react-router-redux";
 
 export const REPLACE_COMMENTS = 'REPLACE_COMMENTS';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
@@ -57,7 +57,19 @@ export function updateComment({id, title, body}) {
                 type: UPDATE_COMMENT,
                 comment: persistedComment
             });
-            dispatch(push('/'))
+            dispatch(go(-1))
+        });
+    }
+}
+
+export function createComment(comment) {
+    return function (dispatch) {
+        API.Comments.create(comment, persistedComment => {
+            dispatch({
+                type: ADD_COMMENT,
+                comment: persistedComment
+            });
+            dispatch(go(-1));
         });
     }
 }

@@ -5,6 +5,7 @@ import './App.css';
 import Homepage from './containers/Homepage.js';
 import CategoryPage from './containers/CategoryPage';
 import NewPostPage from './containers/NewPostPage';
+import NewCommentPage from './containers/NewCommentPage';
 import PostDetailPage from './containers/PostDetailPage';
 import PostEditPage from './containers/PostEditPage';
 import CommentEditPage from './containers/CommentEditPage';
@@ -23,6 +24,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path="/posts/new" component={NewPostPage}/>
+                    <Route exact path="/:category/:postId/comments/new" component={NewCommentPage}/>
                     <Route exact path="/comments/:id/edit" component={CommentEditPage}/>
                     <Route exact path="/:category" component={CategoryPage}/>
                     <Route exact path="/:category/:id" component={PostDetailPage}/>

@@ -53,6 +53,7 @@ export const Comments = {
     vote: (id, option, cb) => POST(`/comments/${id}`, {option}).then(cb),
     get: (id, cb) => GET(`/comments/${id}`).then(cb),
     update: (comment, cb) => PUT(`/comments/${comment.id}`, comment).then(cb),
+    create: (comment, cb) => POST('/comments', comment).then(cb),
 };
 
 

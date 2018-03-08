@@ -3,6 +3,7 @@ import PostListItem from './PostListItem.jsx';
 import Comment from './Comment'
 
 const PostView = ({post, comments, onPostVote, onCommentVote, onPostEdit, onCommentEdit, onPostDelete, onCommentDelete}) => {
+
     return (
         <div className="new-post-form">
             <h3>Post</h3>
@@ -11,6 +12,9 @@ const PostView = ({post, comments, onPostVote, onCommentVote, onPostEdit, onComm
             {comments.map(comment => (
                 <Comment key={comment.id} {...comment} onDelete={onCommentDelete} onVote={onCommentVote} />
             ))}
+            {post && (
+                <a href={`/${post.category}/${post.id}/comments/new`}>New Comment</a>
+            )}
         </div>
     )
 }
