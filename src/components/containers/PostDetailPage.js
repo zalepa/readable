@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PostView from '../ui/PostView';
+import NotFound from '../ui/NotFound';
 import {connect} from 'react-redux';
 import {deletePost, retrievePost, votePost} from '../../actions/posts';
 import {fetchComments, deleteComment, voteComment } from "../../actions/comments";
@@ -11,7 +12,10 @@ class PostDetailPage extends Component {
     }
 
     render() {
-        return <PostView {...this.props} />
+        if (this.props.post)
+            return <PostView {...this.props} />
+        else
+            return <NotFound />
     }
 }
 
