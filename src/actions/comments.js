@@ -1,5 +1,5 @@
 import * as API from "../utils/api";
-import {go} from "react-router-redux";
+import {go,push} from "react-router-redux";
 
 export const REPLACE_COMMENTS = 'REPLACE_COMMENTS';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
@@ -62,14 +62,14 @@ export function updateComment({id, title, body}) {
     }
 }
 
-export function createComment(comment) {
+export function createComment(comment, referrer) {
     return function (dispatch) {
         API.Comments.create(comment, persistedComment => {
             dispatch({
                 type: ADD_COMMENT,
                 comment: persistedComment
             });
-            dispatch(go(-1));
+            dispatch(push(referrer));
         });
     }
 }
